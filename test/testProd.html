@@ -6,18 +6,17 @@
         <title>ProductSearch</title>
 </head>
 <body>
-<table>
-    <tr>
-        <td><b>Search</b></td>
-        <td><input type="text" name="tb" id="tb"></td>
-        <!--<td><input type="button" value="search" id="search" onclick="show()"></td>-->
-    </tr>
-</table>
-<div id="S_product"></div>
+        <b>Search</b></td>
+        <div id="search"><input type="text" id="tb" placeholder="search here.."></div>
+        <div id="S_product"></div>
 
 <script type="text/javascript">
 
-  //  function show() {
+
+        var e = document.querySelector("#tb");
+        e.addEventListener("input",show());
+
+        function show() {
         $.get('products.csv', function(data) {
             var build = '<table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" width="100%">\n';
             var rows = data.split("\n");
@@ -31,7 +30,7 @@
             build += "</table>";
             $('#S_product').append(build);
         });
-  //  }
+    }
 </script>
 </body>
 </html>
